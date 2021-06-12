@@ -228,7 +228,6 @@ def run (stdscr):
                 stdscr.attroff (curses.color_pair (2))
                 rectangle (stdscr, mn_y, mn_x, mn_l, mn_c)
 
-            # Append Tags List
             i = 0
             cwnl = False
             tags_list = get_tags ()[sti:sti+tg_l-2]
@@ -246,7 +245,6 @@ def run (stdscr):
                     else:
                         stdscr.addstr (i+1, 2, "{: >4} : {}".format (t[0], t[1][0:tg_c-10]), curses.color_pair (1))
 
-            # Append Current Tag's Notes List
             i = 0
             notes_list = []
             if cwnl:
@@ -271,7 +269,6 @@ def run (stdscr):
             stdscr.attroff (curses.color_pair (3))
             stdscr.refresh ()
 
-        #get new keyboard press
         k = stdscr.getch ()
 
 def main ():
