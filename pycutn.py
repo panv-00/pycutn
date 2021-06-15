@@ -159,7 +159,7 @@ def run (stdscr):
                 if (selnote and cwnl and len (notes_list)>0) or (len (tags_list)>0 and not selnote):
                     db = shelve.open (sh_name)
                     if selnote:
-                        old_tn = db[ct][cni+1]
+                        old_tn = db[ct][len (db[ct])-cni-1]
                     else:
                         old_tn = db[ct][0]
                     db.close ()
@@ -181,7 +181,7 @@ def run (stdscr):
                     curses.curs_set (0)
                     db = shelve.open (sh_name, writeback=True)
                     if selnote:
-                        db[ct][cni+1] = box.gather ().strip ()
+                        db[ct][len (db[ct])-cni-1] = box.gather ().strip ()
                     else:
                         db[ct][0] = box.gather ().strip ()
                     db.close ()
